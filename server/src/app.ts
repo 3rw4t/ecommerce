@@ -3,6 +3,9 @@ import cors from 'cors'
 import type { CorsOptions } from 'cors'
 import type { Request, Response } from "express";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 const app = express();
 
 const corsOptions: CorsOptions = {
@@ -17,7 +20,13 @@ const corsOptions: CorsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json());
 
-app.get("/api/health", (req: Request, res: Response) => res.json({ ok: false
- }));
+
+// Test route
+app.get("/api/hello", (req: Request, res: Response) => {
+  res.json({ message: "Yep, it works" });
+});
+
+
+app.get("/api/health", (req: Request, res: Response) => res.json({ ok: false}));
 
 export { app };
