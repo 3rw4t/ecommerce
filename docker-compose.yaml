@@ -25,3 +25,11 @@ services:
       - CHOKIDAR_USEPOLLING=true
     depends_on:
       - server
+
+  mysqldn:
+    image: mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE: ecommerce
+    ports:
+      - 3306:3306
