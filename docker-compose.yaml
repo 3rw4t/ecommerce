@@ -26,10 +26,10 @@ services:
     depends_on:
       - server
 
-  mysqldn:
-    image: mysqldb
+  mysqldb:
+    image: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE: ecommerce
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=ecommerce
     ports:
       - 3306:3306
