@@ -7,9 +7,6 @@ services:
       - "3000:3000"
     volumes:
        - ./server/src:/app/src
-    #  - ./server:/app
-    #  - /app/node_modules
-    # Don't wanna overlap node_modules (windows vs linux binaries)
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
