@@ -1,4 +1,17 @@
 services:
+  mysqldb:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=ecommerce
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   server:
     build:
       context: .
@@ -12,6 +25,11 @@ services:
       - CHOKIDAR_USEPOLLING=true
     env_file:
       - ./server/.env
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    command: sh -c "npx prisma migrate dev --name init && npm run dev"
+
   client:
     build:
       context: .
@@ -26,10 +44,3 @@ services:
     depends_on:
       - server
 
-  mysqldb:
-    image: mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=ecommerce
-    ports:
-      - 3306:3306

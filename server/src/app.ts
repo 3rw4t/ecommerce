@@ -2,9 +2,11 @@ import express from "express";
 import cors from 'cors'
 import type { CorsOptions } from 'cors'
 import type { Request, Response } from "express";
-
 import dotenv from "dotenv";
+
 dotenv.config();
+
+
 
 const app = express();
 
@@ -29,5 +31,7 @@ app.get("/api/hello", (req: Request, res: Response) => {
 
 
 app.get("/api/health", (req: Request, res: Response) => res.json({ ok: false}));
+
+
 
 export { app };
