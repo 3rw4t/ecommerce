@@ -20,6 +20,7 @@ model Products {
   description String
   price Float
   stock Int
+  is_onsale Boolean @default(false)
   created DateTime  @default(now())
   updated DateTime  @default(now())
   is_deleted  Boolean @default(false)
