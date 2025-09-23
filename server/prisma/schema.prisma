@@ -14,14 +14,40 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Products {
+model products {
   product_id  Int @id @default(autoincrement())
   name String
-  description String
-  price Float
+  description String @db.Text  // Text Data Type for longer descriptions
+  price Decimal @db.Decimal(10,2) // Price with 2 decimal places
   stock Int
   is_onsale Boolean @default(false)
   created DateTime  @default(now())
-  updated DateTime  @default(now())
-  is_deleted  Boolean @default(false)
+  updated DateTime @updatedAt
+  deleted DateTime?
+
+  categories products_categories[]
+}
+
+model categories {
+  category_id Int @id @default(autoincrement())
+  name String
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+  deleted DateTime?
+
+  products products_categories[]
+}
+
+model products_categories {
+  product       products     @relation(fields: [product_id], references: [product_id])
+  product_id     Int
+
+  category       categories     @relation(fields: [category_id], references: [category_id])
+  category_id     Int
+
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+  deleted DateTime?
+
+  @@id([product_id, category_id]) // clave primaria compuesta
 }
