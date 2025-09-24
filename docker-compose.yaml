@@ -10,7 +10,7 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
       interval: 5s
       timeout: 5s
-      retries: 10
+      retries: 100
 
   server:
     build:
@@ -19,7 +19,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-       - ./server/src:/app/src
+      - ./server/src:/app/src
+      - ./server/prisma:/app/prisma
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -28,8 +29,8 @@ services:
     depends_on:
       mysqldb:
         condition: service_healthy
-    command: sh -c "npx prisma migrate dev --name init && npm run dev"
-
+    command: sh -c "npm run dev"
+# npx prisma migrate dev --name init && 
   client:
     build:
       context: .
