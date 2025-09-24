@@ -15,40 +15,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model products {
+model Product {
   product_id  Int @id @default(autoincrement())
   name String
   description String @db.Text  // Text Data Type for longer descriptions
   price Decimal @db.Decimal(10,2) // Price with 2 decimal places
   stock Int
   is_onsale Boolean @default(false)
+  sale_percentaje Decimal @db.Decimal(5,2)
   created DateTime  @default(now())
   updated DateTime @updatedAt
   deleted DateTime?
 
-  categories products_categories[]
+  categories Category[]
+  images ProductImage[]
 }
 
-model categories {
+model Category {
   category_id Int @id @default(autoincrement())
   name String
   created DateTime @default(now())
   updated DateTime @updatedAt
   deleted DateTime?
 
-  products products_categories[]
+  products Product[]
 }
 
-model products_categories {
-  product       products     @relation(fields: [product_id], references: [product_id])
-  product_id     Int
-
-  category       categories     @relation(fields: [category_id], references: [category_id])
-  category_id     Int
-
+model ProductImage {
+  image_id Int @id @default(autoincrement())
+  product_id Int
+  s3_key String @db.VarChar(2000)
+  is_main Boolean @default(false)
+  sort_order Int 
+  alt String?
   created DateTime @default(now())
   updated DateTime @updatedAt
   deleted DateTime?
 
-  @@id([product_id, category_id]) // clave primaria compuesta
+  product Product @relation(fields: [product_id], references: [product_id], onDelete: Restrict)
 }
