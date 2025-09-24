@@ -1,5 +1,5 @@
 import { app } from "./app.js";
-import { PrismaClient } from './generated/prisma'
+import { PrismaClient } from '../prisma/generated/prisma'
 const prisma = new PrismaClient()
 
 const PORT = 3000;
