@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+prisma/migrations
 
 # Editor directories and files
 .vscode/*
