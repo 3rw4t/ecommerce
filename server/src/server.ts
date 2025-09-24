@@ -13,7 +13,7 @@ async function main() {
             description: 'Talle XL, Color Blanco', 
             price: 99.9,
             stock: 1000,
-            sale_percentaje: 0,
+            sale_percentage: 0,
             }})
         console.log(newProduct)
     } catch (error) {

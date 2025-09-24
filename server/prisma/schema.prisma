@@ -16,7 +16,7 @@ model Product {
   price Decimal @db.Decimal(10,2) // Price with 2 decimal places
   stock Int
   is_onsale Boolean @default(false)
-  sale_percentaje Decimal @db.Decimal(5,2) @default(0.00)
+  sale_percentage Decimal @db.Decimal(5,2) @default(0.00)
   created DateTime  @default(now())
   updated DateTime @updatedAt
   deleted DateTime?
