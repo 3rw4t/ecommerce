@@ -29,7 +29,7 @@ services:
     depends_on:
       mysqldb:
         condition: service_healthy
-    command: sh -c "npx prisma migrate dev --name init && npm run dev"
+    command: sh -c "npx prisma migrate deploy && npm run dev"
   client:
     build:
       context: .
