@@ -7,12 +7,13 @@ app.listen(PORT, () => console.log(`API on http://localhost:${PORT}`));
 
 async function main() {
     try {
-        const newProduct = await prisma.products.create({
+        const newProduct = await prisma.Product.create({
             data: {
             name: 'Remera',
             description: 'Talle XL, Color Blanco', 
             price: 99.9,
             stock: 1000,
+            sale_percentaje: 0,
             }})
         console.log(newProduct)
     } catch (error) {
