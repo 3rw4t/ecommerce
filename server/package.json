@@ -11,6 +11,9 @@
     "build": "tsc -p .",
     "dev": "nodemon --watch src --ext ts --legacy-watch --exec \"node --import tsx src/server.ts\""
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "^6.16.2",
     "cors": "^2.8.5",
