@@ -6,7 +6,7 @@ CREATE TABLE `Product` (
     `price` DECIMAL(10, 2) NOT NULL,
     `stock` INTEGER NOT NULL,
     `is_onsale` BOOLEAN NOT NULL DEFAULT false,
-    `sale_percentaje` DECIMAL(5, 2) NOT NULL,
+    `sale_percentage` DECIMAL(5, 2) NOT NULL,
     `created` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated` DATETIME(3) NOT NULL,
     `deleted` DATETIME(3) NULL,
