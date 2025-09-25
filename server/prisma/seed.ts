@@ -1,9 +1,9 @@
-import { PrismaClient } from "./generated/prisma/index.js";
+import { PrismaClient } from "./generated/index.js";
 
 const prisma = new PrismaClient();
 
 async function main() {
-    await prisma.Product.createMany({
+    await prisma.product.createMany({
         data: [
             {
             name: "White Shirt",
