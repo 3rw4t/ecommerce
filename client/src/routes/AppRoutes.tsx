@@ -9,8 +9,8 @@ function AppRoutes() {
     return (
         <Routes>
             <Route element={<DefaultLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products />} />
             </Route>
 
             {/* Ruta 404 */}
