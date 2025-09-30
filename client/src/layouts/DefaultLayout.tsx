@@ -7,7 +7,7 @@ function DefaultLayout() {
         <>
             <Header />
             
-            <main>
+            <main className="h-[calc(100vh-4rem)]">
                 <Outlet /> 
             </main>
 

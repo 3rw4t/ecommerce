@@ -1,7 +1,7 @@
 function Footer() {
     return (
-        <footer>
-            <p>2025 react-router-dom</p>
+        <footer className="bg-white flex justify-center">
+            <p className="text-gray-400 ">react-router-dom | Ecommerce Project | 2025</p>
         </footer>
     );
 }
