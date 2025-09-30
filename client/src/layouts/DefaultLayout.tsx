@@ -1,8 +1,6 @@
-import { Outlet, Link } from "react-router-dom";
-// <Link> crea un link de navegacion entre rutas
-// <Outlet> es el componente que renderiza el componente de la ruta actual
+import { Outlet, Link } from "react-router-dom"; // <Outlet> es el componente que renderiza el componente de la ruta actual y <Link> crea un link de navegacion entre rutas
 
-export default function DefaultLayout() {
+function DefaultLayout() {
     return (
         <>
             <header>
@@ -21,4 +19,6 @@ export default function DefaultLayout() {
         </>
     );
 }
+
+export default DefaultLayout
 

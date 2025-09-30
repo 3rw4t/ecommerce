@@ -1,4 +1,4 @@
-export default function Products() {
+function Home() {
     return (
         <div>
             <h1>Hi from Home.tsx</h1>
@@ -6,3 +6,5 @@ export default function Products() {
         </div>
     );
 }
+
+export default Home

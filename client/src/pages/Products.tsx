@@ -1,4 +1,4 @@
-export default function Products() {
+function Products() {
     return (
         <div>
             <h1>Now you are in Products view</h1>
@@ -6,3 +6,5 @@ export default function Products() {
         </div>
     );
 }
+
+export default Products
