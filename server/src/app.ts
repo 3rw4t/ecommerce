@@ -25,7 +25,10 @@ app.use(express.json());
 app.get("/api/hello", (req: Request, res: Response) => {
     res.json({ message: "Yep, it works" });
 });
-
 app.get("/api/health", (req: Request, res: Response) => res.json({ ok: false}));
+
+// Products routes
+import productsRouter from "./routes/productsRoutes.js";
+app.use("/api/products", productsRouter);
 
 export { app };
