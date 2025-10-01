@@ -4,6 +4,7 @@ import DefaultLayout from "../layouts/DefaultLayout.tsx";
 import Home from "../modules/home/pages/Home.tsx";
 import Products from "../modules/products/pages/Products.tsx";
 import NotFound from "../modules/errors/pages/NotFound.tsx";
+import ProductsShow from "../modules/products/pages/ProductsShow.tsx";
 
 function AppRoutes() {
     return (
@@ -11,6 +12,7 @@ function AppRoutes() {
             <Route element={<DefaultLayout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/products/:id" element={<ProductsShow />} />
             </Route>
 
             {/* Ruta 404 */}

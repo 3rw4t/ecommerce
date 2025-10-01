@@ -7,7 +7,7 @@ function DefaultLayout() {
         <>
             <Header />
             
-            <main className="h-[calc(100vh-4rem)]">
+            <main className="flex-grow min-h-[calc(100vh-4rem)]">
                 <Outlet /> 
             </main>
 
