@@ -28,7 +28,7 @@ app.get("/api/hello", (req: Request, res: Response) => {
 app.get("/api/health", (req: Request, res: Response) => res.json({ ok: false}));
 
 // Products routes
-import productsRouter from "./routes/productsRoutes.js";
+import productsRouter from "./modules/products/routes.js";
 app.use("/api/products", productsRouter);
 
 export { app };

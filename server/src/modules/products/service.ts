@@ -1,5 +1,4 @@
-// server/src/services/productService.ts
-import { PrismaClient } from "../../prisma/generated/index.js";
+import { PrismaClient } from "../../../prisma/generated/index.js";
 const prisma = new PrismaClient();
 export const getAllProducts = () => {
     return prisma.product.findMany();

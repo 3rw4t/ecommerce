@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 //import type le dice a TS que solo queremos los tipos, no importa nada en runtime.
 //Esto funciona con ES Modules ("type": "module" en package.json).
-import * as productService from "../services/productsServices.js";
+import * as productService from "./service.js";
 
 export const getProducts = async (req: Request, res: Response) => {
     try {
